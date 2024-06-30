@@ -10,6 +10,20 @@ root.render(
   <React.StrictMode>
     <h1>Weather App</h1>
     <Search />
+    <footer>
+      {" "}
+      <a href="https://github.com/avsangel/weather-app-react" target="_blank">
+        open-sourced code,
+      </a>{" "}
+      by{" "}
+      <a
+        href="https://github.com/avsangel?tab=repositories&ocid=AIDcmmcwpj1e5v_SEM__k_CjwKCAjw4f6zBhBVEiwATEHFVtRDTlvEsi5Kmbtt1GDzKE92CsBoBDIXvKeELijRuxY7kC8ZYM6whhoC4aEQAvD_BwE_k_"
+        target="_blank"
+      >
+        {" "}
+        Alesia Shope
+      </a>
+    </footer>
   </React.StrictMode>
 );
 
