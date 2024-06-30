@@ -64,7 +64,7 @@ export default function Search() {
           <li>
             <img
               src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
-              alt="Description of the image"
+              alt="Description"
             />
           </li>
         </ul>
