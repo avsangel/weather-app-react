@@ -15,8 +15,9 @@ export default function Search() {
         type="search="
         placeholder="Enter a City..."
         onChange={updateCity}
+        className="input-box"
       />
-      <input type="submit" value="submit" />
+      <input className="button" type="submit" value="submit" />
     </form>
   );
 
@@ -53,21 +54,29 @@ export default function Search() {
 
   if (temperature) {
     return (
-      <div>
-        {form}
-        <h4> The weather in {city} is currently</h4>
-        <ul>
-          <li>Temperature: {Math.round(temperature)}°F</li>
-          <li>Description: {description}</li>
-          <li>Humidity: {humidity}%</li>
-          <li>Wind: {wind}km/h</li>
-          <li>
-            <img
-              src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
-              alt="Description"
-            />
-          </li>
-        </ul>
+      <div className="out">
+        <div className="form">
+          {form}
+        </div>
+        <h4 className="heading"> Weather: {city}</h4>
+        <div className="container">
+          <ul>
+            <li>
+              <img
+                src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
+                alt="Description"
+                className="image"
+              />
+            </li>
+            <li className="temp">{Math.round(temperature)}°F</li>
+            <li className="des">{description}</li>
+            <div className="mess">
+              <li className="list-item">Humidity: {humidity}%</li>
+              <li className="list-item">Wind: {wind}km/h</li>
+            </div>
+
+          </ul>
+        </div>
       </div>
     );
   } else {
