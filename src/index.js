@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Search from "./Search";
-import axios from "axios";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -12,13 +11,18 @@ root.render(
     <Search />
     <footer>
       {" "}
-      <a href="https://github.com/avsangel/weather-app-react" target="_blank">
+      <a
+        href="https://github.com/avsangel/weather-app-react"
+        target="_blank"
+        rel="noreferrer"
+      >
         open-sourced code,
       </a>{" "}
       by{" "}
       <a
         href="https://github.com/avsangel?tab=repositories&ocid=AIDcmmcwpj1e5v_SEM__k_CjwKCAjw4f6zBhBVEiwATEHFVtRDTlvEsi5Kmbtt1GDzKE92CsBoBDIXvKeELijRuxY7kC8ZYM6whhoC4aEQAvD_BwE_k_"
         target="_blank"
+        rel="noreferrer"
       >
         {" "}
         Alesia Shope
