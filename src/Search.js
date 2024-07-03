@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "bootstrap/dist/css/bootstrap.css";
 
 export default function Search() {
   let [city, setCity] = useState(null);
@@ -63,10 +62,7 @@ export default function Search() {
           <li>Humidity: {humidity}%</li>
           <li>Wind: {wind}km/h</li>
           <li>
-            <img
-              src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
-              alt="Description"
-            />
+            <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} />
           </li>
         </ul>
       </div>
