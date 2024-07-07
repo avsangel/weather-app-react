@@ -10,7 +10,7 @@ root.render(
   <React.StrictMode>
     <div className="container">
       <h1>Weather App</h1>
-      <Search />
+      <Search className="Search" />
       <footer>
         {" "}
         <a

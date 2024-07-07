@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Search.css";
+import FormatedDate from "./FormatedDate";
 
 export default function Search() {
+  const [weatherData, setWeatherData] = useState({ ready: false });
   let [city, setCity] = useState(null);
-  let [temperature, setTemperature] = useState(null);
-  const [description, setDescription] = useState("");
-  let [humidity, setHumidity] = useState(null);
-  let [wind, setWind] = useState(null);
-  let [icon, setIcon] = useState("");
+
+  function handleResponse(response) {
+    setWeatherData({
+      ready: true,
+      temperature: response.data.main.temp,
+      wind: response.data.wind.speed,
+      humidity: response.data.main.humidity,
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+      date: new Date(response.data.dt * 1000),
+    });
+  }
 
   let form = (
     <form onSubmit={handleSubmit}>
@@ -20,51 +30,49 @@ export default function Search() {
     </form>
   );
 
-  function showTemperature(response) {
-    setTemperature(response.data.main.temp);
-  }
-  function showDescription(response) {
-    setDescription(response.data.weather[0].description);
-  }
-  function showHumidity(response) {
-    setHumidity(response.data.main.humidity);
-  }
-  function showWind(response) {
-    setWind(response.data.wind.speed);
-  }
-  function showIcon(response) {
-    setIcon(response.data.weather[0].icon);
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=515c9ddbeb3cda9061acfab71031839e&units=imperial
-    `;
-    axios.get(url).then(showTemperature);
-    axios.get(url).then(showWind);
-    axios.get(url).then(showHumidity);
-    axios.get(url).then(showDescription);
-    axios.get(url).then(showIcon);
+    find();
   }
 
   function updateCity(event) {
     setCity(event.target.value);
   }
+  function find() {
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=515c9ddbeb3cda9061acfab71031839e&units=imperial
+    `;
+    axios.get(url).then(handleResponse);
+  }
 
-  if (temperature) {
+  if (weatherData.ready) {
     return (
-      <div>
-        {form}
-        <h4> The weather in {city} is currently</h4>
+      <div className="Search">
+        <div className="form">{form}</div>
+        <h2> {city}</h2>
         <ul>
-          <li>Temperature: {Math.round(temperature)}°F</li>
-          <li>Description: {description}</li>
-          <li>Humidity: {humidity}%</li>
-          <li>Wind: {wind}km/h</li>
           <li>
-            <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} />
+            <FormatedDate date={weatherData.date} />
           </li>
+          <li>Description: {weatherData.description}</li>
         </ul>
+        <div className="row">
+          <div className="col-6">
+            <img
+              src={`https://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
+              alt="current"
+              className="float-left"
+            />{" "}
+            <div className="float-left">
+              Temperature: {Math.round(weatherData.temperature)}°F
+            </div>
+          </div>
+          <div className="col-6">
+            <ul>
+              <li>Humidity: {weatherData.humidity}%</li>
+              <li>Wind: {weatherData.wind}km/h</li>
+            </ul>
+          </div>
+        </div>
       </div>
     );
   } else {
