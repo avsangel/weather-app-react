@@ -12,15 +12,7 @@ root.render(
       <h1>Weather App</h1>
       <Search className="Search" />
       <footer>
-        {" "}
-        <a
-          href="https://github.com/avsangel/weather-app-react"
-          target="_blank"
-          rel="noreferrer"
-        >
-          open-sourced code,
-        </a>{" "}
-        by{" "}
+        This Project was coded by{" "}
         <a
           href="https://github.com/avsangel?tab=repositories&ocid=AIDcmmcwpj1e5v_SEM__k_CjwKCAjw4f6zBhBVEiwATEHFVtRDTlvEsi5Kmbtt1GDzKE92CsBoBDIXvKeELijRuxY7kC8ZYM6whhoC4aEQAvD_BwE_k_"
           target="_blank"
@@ -28,6 +20,22 @@ root.render(
         >
           {" "}
           Alesia Shope
+        </a>{" "}
+        and is{" "}
+        <a
+          href="https://github.com/avsangel/weather-app-react"
+          target="_blank"
+          rel="noreferrer"
+        >
+          open-sourced code on Github,
+        </a>{" "}
+        and hosted on{" "}
+        <a
+          href="https://w33k5homework-react-weather.netlify.app/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Netilify
         </a>
       </footer>
     </div>

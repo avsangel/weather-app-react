@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Search.css";
 import FormatedDate from "./FormatedDate";
+import TempCon from "./TempCon";
 
 export default function Search() {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -57,13 +58,15 @@ export default function Search() {
         </ul>
         <div className="row">
           <div className="col-6">
-            <img
-              src={`https://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
-              alt="current"
-              className="float-left"
-            />{" "}
-            <div className="float-left">
-              Temperature: {Math.round(weatherData.temperature)}°F
+            <div className="temperature">
+              <img
+                src={`https://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
+                alt="current"
+                className="float-left"
+              />{" "}
+              <div className="float-left">
+                <TempCon fahrenheit={weatherData.temperature} />
+              </div>
             </div>
           </div>
           <div className="col-6">
