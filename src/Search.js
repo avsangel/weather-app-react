@@ -40,7 +40,7 @@ export default function Search() {
     setCity(event.target.value);
   }
   function find() {
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=515c9ddbeb3cda9061acfab71031839e&units=imperial
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=743bee57fddbfaf52447193a87d5dd25&units=imperial
     `;
     axios.get(url).then(handleResponse);
   }
